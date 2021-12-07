@@ -1,0 +1,40 @@
+{
+  "db1": [
+    {
+      "username": "cyclops",
+      "number": "456",
+      "confirmNumber": "456",
+      "id": 1
+    },
+    {
+      "username": "xyz",
+      "number": "xyz",
+      "confirmNumber": "xyz",
+      "id": 2
+    },
+    {
+      "username": "qwerty",
+      "number": "53465346",
+      "confirmNumber": "53465346",
+      "id": 3
+    },
+    {
+      "username": "demo",
+      "number": "demo123",
+      "confirmNumber": "demo123",
+      "id": 4
+    }
+  ],
+  "db2": [
+    {
+      "username": "cyclops@2021.com",
+      "number": "cyclops2021",
+      "id": 1
+    },
+    {
+      "username": "cyclops@2022.com",
+      "number": "cyclops2022",
+      "id": 2
+    }
+  ]
+}

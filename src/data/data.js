@@ -1,47 +1,40 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 function Data() {
-    const [leagues,setLeagues]=useState([]);
-    const [sports,setSports]=useState([]);
+    const [leagues, setLeagues] = useState([]);
+    const [leagueToggle, setLeagueToggle] = useState(false);
 
     async function leaguesData() {
-        let result = await fetch('http://localhost:3000/list')
+        let result = await fetch('http://localhost:3004/db1')
         result = await result.json()
-        console.log('Please wait while the response is loading...')
-        setTimeout(() => {
-            console.log(result)
-        }, 2000)
-        setLeagues(result);
+        setLeagues(result)
+        setLeagueToggle(!leagueToggle)
     }
 
-    async function sportsData() {
-        let result = await fetch('http://localhost:3000/list')
-        result = await result.json()
-        console.log('Please wait while the response is loading...')
-        setTimeout(() => {
-            console.log(result)
-        }, 2000)
-        setSports(result);
-    }
     return (
         <div>
-            <button style={{ marginRight: '10px' }} onClick={leaguesData}>Leagues</button>
-            <button onClick={sportsData}>Sports</button><br /><br />
+            <button style={{ marginRight: '10px' }} onClick={leaguesData}>Toggle switch</button>
             <table>
                 <thead>
                     <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
+                        <td>Username</td>
+                        <td>Number</td>
+                        <td>Confirm Number</td>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                    </tr>
-                </tbody>
+                {
+                    leagueToggle ? <tbody>
+                        {
+                            leagues.map((item, i) => {
+                                return <tr key={i}>
+                                    <td>{item.username}</td>
+                                    <td>{item.number}</td>
+                                    <td>{item.confirmNumber}</td>
+                                </tr>
+                            })
+                        }
+                    </tbody> : null
+                }
             </table>
         </div>
     )
